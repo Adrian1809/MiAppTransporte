@@ -28,6 +28,7 @@ class _LoginPageState extends State<LoginPage> {
   // Controladores para capturar el texto de los inputs
   final TextEditingController _emailController = TextEditingController();
   final TextEditingController _passwordController = TextEditingController();
+  
 
   @override
   void dispose() {
@@ -44,20 +45,18 @@ class _LoginPageState extends State<LoginPage> {
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 30.0),
           child: Column(
+            // Logo o Imagen de Bienvenida
             children: [
-              const SizedBox(height: 100),
-
-              // Logo o Icono principal
-              const Icon(
-                Icons.rocket_launch,
-                size: 100,
-                color: Colors.blueAccent,
+              const SizedBox(height: 150),
+              Container(
+                height: 150,
+                width: 150,
+                child: Image.asset('assets/Logo de Login.png'),
               ),
-
-              const SizedBox(height: 20),
+               const SizedBox(height: 20),
 
               const Text(
-                "¡Bienvenido de nuevo!",
+                "¡Bienvenido!",
                 style: TextStyle(
                   fontSize: 28,
                   fontWeight: FontWeight.bold,
@@ -73,6 +72,9 @@ class _LoginPageState extends State<LoginPage> {
 
               const SizedBox(height: 50),
 
+             
+            
+            
               // Campo de Email
               TextField(
                 controller: _emailController,
@@ -91,6 +93,8 @@ class _LoginPageState extends State<LoginPage> {
               TextField(
                 controller: _passwordController,
                 obscureText: true,
+                enableSuggestions: false,
+                autocorrect: false,
                 decoration: InputDecoration(
                   labelText: "Contraseña",
                   prefixIcon: const Icon(Icons.lock_outline),
@@ -122,7 +126,7 @@ class _LoginPageState extends State<LoginPage> {
                     debugPrint("Email: ${_emailController.text}");
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.blueAccent,
+                    backgroundColor: const Color.fromARGB(255, 76, 214, 7),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(12),
                     ),
